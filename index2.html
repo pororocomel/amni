@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the bookscape</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- <div id="header-placeholder"></div> -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>The Bookscape</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="buyform.html">Shop</a></li>
+                    <li>
+                        <a href="#">Categories</a>
+                        <div class="dropdown">
+                            <a href="booknew.html">Novel</a>
+                            <a href="fiction.html">Fiction</a>
+                            <a href="islamicnew.html">Islamic</a>
+                            <a href="academic.html">Academic</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">About Us</a>
+                        <div class="dropdown">
+                            <a href="whoweare.html">Who We Are</a>
+                            <a href="ourteam.html">Team</a>
+                            <a href="productoffer.html">Our Product Offering</a>
+                            <a href="v.html">Vision, Mission & Value</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">Our Details</a>
+                        <div class="dropdown">
+                            <a href="contactus.html">Contact</a>
+                            <a href="location.html">Location</a>
+                        </div>
+                    </li>
+                    <li><a href="review.html">Review</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Slider Section -->
+    <section class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="images/header1.png" alt="Slide 1">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="images/header3.png" alt="Slide 2">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="images/header2.png" alt="Slide 3">
+        </div>
+    </section>
+
+    <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+<body>
+    <h1>Promo New Year 2025 - 15% OFF!</h1>
+    <div class="slideshow-container">
+        <div class="slides">
+            <div class="slide">
+                <img src="images/book1.jpg" alt="Book 1">
+                <h3>Empayar</h3>
+                <p class="price">
+                    <span class="original">RM30.00</span> 
+                    <span class="discount">RM25.50</span>
+                </p>
+            </div>
+            <div class="slide">
+                <img src="images/book2.jpg" alt="Book 2">
+                <h3>Nirnama</h3>
+                <p class="price">
+                    <span class="original">RM50.00</span> 
+                    <span class="discount">RM42.50</span>
+                </p>
+            </div>
+            <div class="slide">
+                <img src="images/novel1.jpg" alt="Book 3">
+                <h3>See You In A Bit</h3>
+                <p class="price">
+                    <span class="original">RM30.00</span> 
+                    <span class="discount">RM25.50</span>
+                </p>
+            </div>
+            <div class="slide">
+                <img src="images/novel2.jpg" alt="Book 4">
+                <h3>Dia Hero Sempurna</h3>
+                <p class="price">
+                    <span class="original">RM29.00</span> 
+                    <span class="discount">RM24.65</span>
+                </p>
+            </div>
+            <div class="slide">
+                <img src="images/islamic1.jpg" alt="Book 5">
+                <h3> Apa Ertinya Saya Menganut Agama Islam</h3>
+                <p class="price">
+                    <span class="original">RM10.00</span> 
+                    <span class="discount">RM8.50</span>
+                </p>
+            </div>
+            <div class="slide">
+                <img src="images/ac1.jpg" alt="Book 6">
+                <h3>Visi Sukses SPM TING.4 & 5</h3>
+                <p class="price">
+                    <span class="original">RM32.30</span> 
+                    <span class="discount">RM27.46</span>
+                </p>
+            </div>
+                   </div>
+        <div class="navigation">
+            <button id="prev">Prev</button>
+            <button id="next">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelector('.slides');
+        const slideWidth = slides.querySelector('.slide').clientWidth;
+        const totalSlides = slides.children.length;
+        const slidesPerView = 3;
+        let currentIndex = 0;
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex <= 0) ? totalSlides - slidesPerView : currentIndex - 1;
+            slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex >= totalSlides - slidesPerView) ? 0 : currentIndex + 1;
+            slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        });
+    </script>
+
+    <div class="content">
+        <h2>WHY CHOOSE US?</h2>
+        <div class="features">
+            <div class="feature">
+                <img src="images/freeship.jpg" alt="Free Shipping">
+                <p>Free Shipping</p>
+            </div>
+            <div class="feature">
+                <img src="images/cashback.png" alt="Money Back">
+                <p>Money Back Guarantee</p>
+            </div>
+            <div class="feature">
+                <img src="images/cod3.png" alt="Cash on Delivery">
+                <p>Cash on Delivery</p>
+            </div>
+        </div>
+
+           </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Dynamically load header and footer
+        async function loadPartials() {
+            // const headerPlaceholder = document.getElementById('header-placeholder');
+            const footerPlaceholder = document.getElementById('footer-placeholder');
+
+            // // Fetch and load header
+            // const headerResponse = await fetch('partials/header.html');
+            // if (headerResponse.ok) {
+            //     headerPlaceholder.innerHTML = await headerResponse.text();
+            // } else {
+            //     console.error('Failed to load header');
+            // }
+
+            // Fetch and load footer
+            const footerResponse = await fetch('partials/footer.html');
+            if (footerResponse.ok) {
+                footerPlaceholder.innerHTML = await footerResponse.text();
+            } else {
+                console.error('Failed to load footer');
+            }
+        }
+
+        loadPartials();
+    </script>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        // Countdown Timer
+        const countDownDate = new Date("Jan 15, 2025 23:59:59").getTime();
+        const countdownElement = document.createElement('div');
+        countdownElement.classList.add('promo');
+        countdownElement.innerHTML = 'New Year Promo Ends In: <span class="countdown" id="countdown"></span>';
+        document.body.insertBefore(countdownElement, document.querySelector('.content'));
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }
+
+        const x = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>

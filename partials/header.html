@@ -1,0 +1,55 @@
+<header class="navbar">
+    <div class="container">
+        <div class="logo">
+            <h1>The Bookscape</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index2.html" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">Shop</a></li>
+                <li>
+                    <a href="#" class="nav-link">Categories</a>
+                    <div class="dropdown">
+                        <a href="booknew.html">Novel</a>
+                        <a href="fiction.html">Fiction</a>
+                        <a href="islamicnew.html">Islamic</a>
+                        <a href="academic.html">Academic</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">About Us</a>
+                    <div class="dropdown">
+                        <a href="whoweare.html">Who We Are</a>
+                        <a href="ourteam.html">Team</a>
+                        <a href="productoffer.html">Our Product Offering</a>
+                        <a href="v.html">Vision, Mission & Value</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">Our Details</a>
+                    <div class="dropdown">
+                        <a href="contactus.html">Contact</a>
+                        <a href="location.html">Location</a>
+                    </div>
+                </li>
+                <li><a href="review.html" class="nav-link">Review</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<script>
+    // Function to handle active state on click
+    document.addEventListener('DOMContentLoaded', () => {
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                // Remove the 'active' class from all links
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                
+                // Add the 'active' class to the clicked link
+                this.classList.add('active');
+            });
+        });
+    });
+</script>

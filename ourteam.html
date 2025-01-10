@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Our Team</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+  body {
+    background-image: url('images/latar.jpg');
+   background-repeat: no-repeat;
+   background-attachment: fixed;  
+   background-size: cover;
+ }
+ .team-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 5px;
+  }
+  
+  .container {
+    position: relative;
+    width: 100%;
+    max-width: 300px; 
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: #950952;
+  }
+  
+  .container:hover .overlay {
+    opacity: 1;
+  }
+  
+  .icon {
+    color: white;
+    font-size: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .fa-user:hover {
+    color: #eee;
+  }
+  
+  .chart-container {
+    text-align: right;
+  }
+  footer {
+      color: black;
+      text-align: center; 
+      padding: 5px 0;
+      border-top: 3px solid #950952; 
+      width: 100%; 
+      background-color: white; 
+      bottom: 0;
+      left: 0;
+      position: relative; 
+  }
+
+  team-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 5px;
+  }
+  
+  .container {
+    position: relative;
+    width: 100%;
+    max-width: 300px; 
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: #950952;
+  }
+  
+  .container:hover .overlay {
+    opacity: 1;
+  }
+  
+  .icon {
+    color: white;
+    font-size: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .fa-user:hover {
+    color: #eee;
+  }
+  
+  .chart-container {
+    text-align: right;
+  }
+  footer {
+      color: black;
+      text-align: center; 
+      padding: 5px 0;
+      border-top: 3px solid #950952; 
+      width: 100%; 
+      background-color: white; 
+      bottom: 0;
+      left: 0;
+      position: relative; 
+  }
+  .navbar {
+    position: sticky; /* Ensures the navbar stays sticky */
+    top: 0; /* Sticks it to the top of the viewport */
+    z-index: 1000; /* Keeps it above other elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #950952; /* Background color */
+    padding: 10px 40px; /* Internal spacing */
+    color: white;
+    width: 95%; /* Full width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+  }       
+  
+  .navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+    color: white;
+  }           
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    position: relative; /* Menentukan parent dropdown */
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav ul li a:hover {
+    color: orange;
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    color: black;
+    min-width: 150px;
+    z-index: 999; /* Agar berada di atas elemen lain */
+    display: none; /* Disembunyikan secara default */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dropdown a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .dropdown a:hover {
+    background-color: #f4f4f4;
+  }
+  
+  nav ul li:hover .dropdown {
+    display: block;
+  }
+  
+</style>
+<body>
+  <header class="navbar">
+    <div class="container">
+        <div class="logo">
+            <h1>The Bookscape</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index2.html" class="nav-link">Home</a></li>
+                <li><a href="buyform.html" class="nav-link">Shop</a></li>
+                <li>
+                    <a href="#" class="nav-link">Categories</a>
+                    <div class="dropdown">
+                        <a href="booknew.html">Novel</a>
+                        <a href="fiction.html">Fiction</a>
+                        <a href="islamicnew.html">Islamic</a>
+                        <a href="academic.html">Academic</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">About Us</a>
+                    <div class="dropdown">
+                        <a href="whoweare.html">Who We Are</a>
+                        <a href="ourteam.html">Team</a>
+                        <a href="productoffer.html">Our Product Offering</a>
+                        <a href="v.html">Vision, Mission & Value</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">Our Details</a>
+                    <div class="dropdown">
+                        <a href="contactus.html">Contact</a>
+                        <a href="location.html">Location</a>
+                    </div>
+                </li>
+                <li><a href="review.html" class="nav-link">Review</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<script>
+// Function to handle active state on click
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            // Remove the 'active' class from all links
+            navLinks.forEach(nav => nav.classList.remove('active'));
+            
+            // Add the 'active' class to the clicked link
+            this.classList.add('active');
+
+            // Optional: Prevent default behavior for '#' links
+            if (this.getAttribute('href') === '#') {
+                event.preventDefault();
+            }
+        });
+    });
+});
+
+</script>
+
+  <br>
+<br>
+
+<div class="chart-container">
+  <table align="center" cellpadding="10px" cellspacing="5px">
+  <tr>                         
+    <td align="center" style="background-color: #ede0d4; padding: 40px; border-radius: 15px; width: 95%; box-shadow: darkgrey;">
+    <b><p style="color: black; font-size: 30px;">THE BOOKSCAPE ORGANIZATION CHART</b>
+    <br>
+    <br>
+    <img src="images/chartnew.jpg" alt="family2" usemap="#fmily2map" style="width: 930px; height: 550px; border-radius: 2px;">
+    </td>
+  </tr>
+  </table> 
+</div>
+<br>
+<br>
+<br>    
+<br>
+<br>
+<body>
+<div>
+<marquee scrollamount="10">
+<h1 style="border: 1px solid #950952; text-align: center; font-family: verdana; font-size: 50px; background-color: #ede0d4;">
+    <span style="color: #950952;">MEET</span>
+    <span style="color: #950952;">OUR</span>
+    <span style="color: #950952;">TEAM</span>
+</h1>
+</marquee>
+</div>
+
+
+<div class="team-wrapper">
+  <div class="container">
+    <img src="images/amni1.jpg" alt="Avatar" class="image">
+    <div class="overlay">
+      <a href="descamni.html" class="icon" title="User Profile">
+        <i class="fa fa-user"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <img src="images/waninew.jpg" alt="Avatar" class="image">
+    <div class="overlay">
+      <a href="descwani.html" class="icon" title="User Profile">
+        <i class="fa fa-user"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <img src="images/alia.jpg" alt="Avatar" class="image">
+    <div class="overlay">
+      <a href="descalia1.html" class="icon" title="User Profile">
+        <i class="fa fa-user"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <img src="images/aina2.jpg" alt="Avatar" class="image">
+    <div class="overlay">
+      <a href="descaina.html" class="icon" title="User Profile">
+        <i class="fa fa-user"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+      <center><p>Copyright © 2025 BOOKSCAPE SDN BHD. All Rights Reserved | BOOKSCAPEOnline.com.</p></center>
+</footer>
+
+
+
+</body>
+</html>

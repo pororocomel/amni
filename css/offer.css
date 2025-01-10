@@ -1,0 +1,216 @@
+/* General Body Styling */
+body {
+    background-image: url('../images/latar.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header (Navbar) */
+.navbar {
+    position: relative;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #950952;
+    padding: 10px 40px;
+    color: white;
+    width: 95.3%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo h1 {
+    font-size: 24px;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    position: relative; /* Parent for dropdown */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    color: orange;
+    background-color: rgba(255, 255, 255, 0.2); /* Slight background change on hover */
+}
+
+/* Dropdown Styling */
+.dropdown {
+    position: absolute;
+    top: 100%; /* Positions below the parent `li` */
+    left: 0;
+    background-color: white; /* Background color for dropdown */
+    color: black;
+    min-width: 150px;
+    z-index: 999; /* Ensures it stays above other elements */
+    display: none; /* Hidden by default */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 0; /* Removes padding for proper alignment */
+}
+
+.dropdown li {
+    list-style: none; /* Removes bullets */
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+}
+
+.dropdown a:hover {
+    background-color: #f4f4f4; /* Light grey on hover */
+    color: #950952; /* Purple text on hover */
+}
+
+nav ul li:hover .dropdown {
+    display: block; /* Shows dropdown on hover of the parent `li` */
+}
+
+/* Dropdown Styling */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    color: black;
+    min-width: 200px;
+    z-index: 999;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown a:hover {
+    background-color: #f4f4f4;
+    color: #950952;
+}
+
+nav ul li:hover .dropdown {
+    display: block;
+}
+
+
+/* Main Content Container */
+.container {
+    flex-grow: 1; /* Makes it take up all available space between header and footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 2500px;
+    overflow: hidden;
+}
+
+/* Slider */
+.slider {
+    display: flex;
+    gap: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card {
+    background-color: #E8ADAA;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    min-width: 200px;
+    transition: transform 0.4s ease-in-out;
+}
+
+.card img {
+    width: 190px;
+    height: 240px;
+}
+
+.card h3 {
+    margin: 8px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #da627d;
+}
+
+.card.active {
+    transform: scale(1.2);
+    background-color: #a53860;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Controls */
+.controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+button {
+    background-color: #a53860;
+    border: none;
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 3px solid #950952;
+    width: 100%;
+    background-color: white;
+    position: relative; /* Keeps it in the flow of the document */
+    margin-top: auto; /* Pushes the footer to the bottom when content is shorter */
+}

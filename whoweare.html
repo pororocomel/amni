@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Bookstore</title>
+    <link rel="stylesheet" href="css/whoweare.css">
+</head>
+
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+<div class="container">
+    <div class="image">
+        <img src="images/bookstorenew.png" alt="Bookstore Illustration">
+    </div>
+    <div class="content">
+        <h2>WHO WE ARE</h2>
+        <p>
+            Welcome to The Bookscape, a one-stop destination for creativity, learning, and fun! Established in January 2024 in the heart of Alor Setar, Kedah, our store is more than just a bookstore—it’s a hub for students, readers, and families alike.
+            <br><br>
+            At The Bookscape, we proudly offer a wide collection of books, including novels, academic texts, fiction, and Islamic literature. But that’s not all! Our shelves are stocked with high-quality stationery, stylish tote bags, essential tools for students and creators like art supplies. For those looking to unwind or bond with friends, our games section offers something for everyone perfect for relaxing or bonding with loved ones.
+            <br><br>
+            What truly sets us apart is our unbeatable value, you won’t find deals like ours anywhere else. Whether you’re a reader, a creator, or someone seeking unique finds, The Bookscape is here to spark your passion and curiosity. Step into our world to explore endless possibilities, experience exceptional quality, and enjoy a welcoming space crafted just for you! &#129392;
+        </p>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<center><h1>OUR BOOK STORE</h1></center>
+
+<div class="video-container">
+    <video loop autoplay controls>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<script>
+  async function loadHeader() {
+      const headerPlaceholder = document.getElementById('header-placeholder');
+      const response = await fetch('partials/bheader.html');
+      if (response.ok) {
+          headerPlaceholder.innerHTML = await response.text();
+      } else {
+          console.error('Failed to load header');
+      }
+  }
+  loadHeader();
+</script>
+</body>
+</html>

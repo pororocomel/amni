@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Navbar</title>
+    <style>
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #950952;
+            padding: 10px 20px;
+            color: white;
+            position: relative; /* Important for dropdown positioning */
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            position: relative;
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+        }
+
+        .navbar ul li .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%; /* Dropdown appears below the navbar */
+            left: 0;
+            background-color: #6d004e;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 9999; /* Ensure it stays on top of everything */
+        }
+
+        .navbar ul li:hover .dropdown {
+            display: block; /* Show dropdown on hover */
+        }
+
+        .navbar ul li .dropdown a {
+            display: block;
+            margin: 5px 0;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <h1>The Bookscape</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li>
+                    <a href="#">Categories</a>
+                    <div class="dropdown">
+                        <a href="#">Novel</a>
+                        <a href="fiction.html">Fiction</a>
+                        <a href="#">Islamic</a>
+                        <a href="#">Academic</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                    <div class="dropdown">
+                        <a href="#">Who We Are</a>
+                        <a href="#">Team</a>
+                        <a href="#">Our Product Offering</a>
+                        <a href="#">Vision, Mission & Value</a>
+                    </div>
+                </li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

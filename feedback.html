@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Feedback and Tablet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7f6;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Main container holding both elements */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 50px;
+      flex-wrap: wrap; /* To allow responsiveness */
+    }
+
+    /* The device with borders (tablet) */
+    .tablet {
+      position: relative;
+      width: 300px; /* Adjusted width */
+      height: 500px; /* Adjusted height */
+      margin: 10px;
+      border: 16px black solid;
+      border-top-width: 60px;
+      border-bottom-width: 60px;
+      border-radius: 36px;
+    }
+
+    /* The horizontal line on the top of the device */
+    .tablet:before {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 5px;
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #333;
+      border-radius: 10px;
+    }
+
+    /* The circle on the bottom of the device */
+    .tablet:after {
+      content: '';
+      display: block;
+      width: 35px;
+      height: 35px;
+      position: absolute;
+      left: 50%;
+      bottom: -65px;
+      transform: translate(-50%, -50%);
+      background: #333;
+      border-radius: 50%;
+    }
+
+    /* The screen (or content) of the device */
+    .tablet .content {
+      width: 100%;
+      height: 100%;
+      background: white;
+      margin: -1px;
+      overflow: hidden; /* Hide overflow */
+      position: relative;
+    }
+
+    /* Chat container that moves vertically */
+    .chat-wrapper {
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      animation: scrollChat 20s linear infinite;
+    }
+
+    .chat-message {
+      background: #eee;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 12px;
+      margin: 10px 0;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .chat-message span {
+      font-weight: bold;
+    }
+
+    /* Animation to scroll chat from top to bottom */
+    @keyframes scrollChat {
+      0% {
+        top: 100%;
+      }
+      100% {
+        top: -100%;
+      }
+    }
+
+    /* Feedback form styles */
+    .feedback-form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 500px;
+      max-width: 100%;
+      text-align: center;
+      margin-top: 10px;
+      display: none; /* Initially hidden */
+    }
+
+    .feedback-form h2 {
+      color: black;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    label {
+      text-align: left;
+      font-size: 16px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    input[type="text"], input[type="email"], textarea, input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 2px solid #ccc;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    .rating {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .rating i {
+      font-size: 30px;
+      color: #ff914d;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .rating i:hover,
+    .rating i.active {
+      color: #ffde59;
+    }
+
+    .submit-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+
+    .feedback-message {
+      font-size: 18px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .feedback-message.success {
+      color: green;
+    }
+
+    .feedback-message.error {
+      color: red;
+    }
+
+    .image-preview {
+      margin-top: 10px;
+      display: none;
+      width: 100%;
+      max-width: 200px;
+      border-radius: 8px;
+      border: 3px solid #ccc;
+    }
+
+    /* Button to toggle feedback form */
+    .toggle-feedback-btn {
+      background-color: #007BFF;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .toggle-feedback-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive layout adjustments */
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column; /* Stack the items vertically on small screens */
+        padding: 20px;
+      }
+
+      .tablet {
+        margin: 20px 0;
+        width: 80%;
+        height: 400px;
+      }
+
+      .feedback-form {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Tablet Device -->
+    <div class="tablet">
+      <div class="content">
+        <div class="chat-wrapper">
+          <!-- Chat messages -->
+          <div class="chat-message">
+            <span>Chris Fox:</span> Hey, how are you today?
+          </div>
+          <div class="chat-message">
+            <span>Rebecca Flex:</span> I'm doing great, thanks for asking! What's up?
+          </div>
+          <div class="chat-message">
+            <span>Chris Fox:</span> Not much, just catching up on work. What about you?
+          </div>
+          <div class="chat-message">
+            <span>Rebecca Flex:</span> Same here, just finishing up some tasks.
+          </div>
+          <div class="chat-message">
+            <span>Chris Fox:</span> Cool, let's have a meeting later today.
+          </div>
+          <div class="chat-message">
+            <span>Rebecca Flex:</span> Sounds good! Let's catch up later.
+          </div>
+          <!-- More chat messages can be added here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Button to toggle feedback form -->
+    <button class="toggle-feedback-btn" onclick="toggleFeedbackForm()">Give Feedback</button>
+
+    <!-- Customer Feedback Form -->
+    <div class="feedback-form" id="feedbackForm">
+      <h2><marquee>Customer Feedback</marquee></h2>
+      <form id="feedbackFormContent" enctype="multipart/form-data">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="rating">Rating (1-5):</label>
+        <div class="rating" id="rating">
+          <i class="fas fa-star" data-value="1"></i>
+          <i class="fas fa-star" data-value="2"></i>
+          <i class="fas fa-star" data-value="3"></i>
+          <i class="fas fa-star" data-value="4"></i>
+          <i class="fas fa-star" data-value="5"></i>
+        </div>
+
+        <label for="comments">Comments:</label>
+        <textarea id="comments" name="comments" placeholder="Enter your feedback" required></textarea>
+
+        <label for="imageUpload">Upload an Image (optional):</label>
+        <input type="file" id="imageUpload" name="image" accept="image/*">
+
+        <img id="imagePreview" class="image-preview" src="#" alt="Image Preview">
+
+        <button type="submit" class="submit-btn">Submit Feedback</button>
+      </form>
+
+      <div class="feedback-message" id="feedbackMessage"></div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle feedback form visibility
+    function toggleFeedbackForm() {
+      const feedbackForm = document.getElementById('feedbackForm');
+      feedbackForm.style.display = feedbackForm.style.display === 'none' || feedbackForm.style.display === '' ? 'block' : 'none';
+    }
+
+    // Rating stars functionality
+    const stars = document.querySelectorAll('.rating i');
+    let selectedRating = 0;
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        selectedRating = star.getAttribute('data-value');
+        stars.forEach(star => star.classList.remove('active'));
+        for (let i = 0; i < selectedRating; i++) {
+          stars[i].classList.add('active');
+        }
+      });
+    });
+
+    // Image preview functionality
+    const imageUpload = document.getElementById('imageUpload');
+    const imagePreview = document.getElementById('imagePreview');
+
+    imageUpload.addEventListener('change', () => {
+      const file = imageUpload.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          imagePreview.src = event.target.result;
+          imagePreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        imagePreview.style.display = 'none';
+      }
+    });
+
+    // Feedback form submission
+    const form = document.getElementById('feedbackFormContent');
+    const feedbackMessage = document.getElementById('feedbackMessage');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const comments = document.getElementById('comments').value;
+
+      if (name && email && comments && selectedRating) {
+        feedbackMessage.textContent = 'Thank you for your feedback!';
+        feedbackMessage.classList.remove('error');
+        feedbackMessage.classList.add('success');
+      } else {
+        feedbackMessage.textContent = 'Please fill out all fields and select a rating.';
+        feedbackMessage.classList.remove('success');
+        feedbackMessage.classList.add('error');
+      }
+
+      feedbackMessage.style.display = 'block';
+
+      form.reset();
+      stars.forEach(star => star.classList.remove('active'));
+      imagePreview.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

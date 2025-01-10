@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <style>
+   .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            color: white;
+        }
+
+            
+       
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            position: relative; /* Menentukan parent dropdown */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: orange;
+        }
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .navigation button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .navigation button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+
+</style>
+
+<style>
+body {
+   background-image: url('images/latar.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+</style>
+</head>
+<style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #950952;
+            padding: 10px 40px;
+            color: white;
+          position: sticky; 
+           top: 0; 
+    z-index: 1000; 
+    width: 95%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+     
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        .form-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        .book-item {
+            margin-bottom: 10px;
+            
+        }
+        #total-price{
+            font-weight: bold;
+            color: red;
+       }
+        #summary{
+            font-weight: bold;
+            color: black; 
+
+        }
+        .section {
+            display: none;
+            margin-top: 10px;
+        }
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .delete-icon {
+            cursor: pointer;
+            color: red;
+            margin-left: 30px;
+            font-size: 25px;
+        }
+        button {
+            background-color: #950952;
+            color: white;
+            font-size: 18px; /* Membesarkan saiz teks butang */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+
+
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>The Bookscape</h1>
+            </div>
+                       <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="buyform.html">Shop</a></li>
+                    <li>
+                        <a href="#">Categories</a>
+                        <div class="dropdown">
+                            <a href="booknew.html">Novel</a>
+                            <a href="fiction.html">Fiction</a>
+                            <a href="islamicnew.html">Islamic</a>
+                            <a href="academic.html">Academic</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">About Us</a>
+                        <div class="dropdown">
+                            <a href="whoweare.html">Who We Are</a>
+                             <a href="ourteam.html">Team</a>
+                            <a href="productoffer.html">Our Product Offering</a>
+                            <a href="v.html">Vision,Mission & Value</a>
+                        </div>
+                    </li>
+                     <li>
+                   
+                    
+                        <a href="#">Our Details</a>
+                        <div class="dropdown">
+                            <a href="contactus.html">Contact</a>
+                            <a href="location.html">Location</a>
+                     </div>
+                    </li>
+                     <li><a href="review.html">Review</a></li>
+                    <li>
+
+              </ul>
+            </nav>
+        </div>
+    </header>
+
+    <script>
+        function updateTotal() {
+            const bookItems = document.querySelectorAll('.book-item');
+            let total = 0;
+            let summaryContent = document.getElementById('summary');
+            summaryContent.innerHTML = '';
+            bookItems.forEach((item, index) => {
+                const checkbox = item.querySelector('.book-checkbox');
+                const quantity = item.querySelector('.book-quantity');
+                if (checkbox.checked) {
+                    const price = parseFloat(checkbox.dataset.price);
+                    const qty = parseInt(quantity.value);
+                    total += price * qty;
+                    const bookTitle = checkbox.nextSibling.textContent.trim();
+                    const summaryItem = document.createElement('div');
+                    summaryItem.className = 'summary-item';
+                    summaryItem.innerHTML = `
+                        ${bookTitle} - RM ${(price * qty).toFixed(2)} (${qty} pcs)
+                        <span class="delete-icon" onclick="removeSelection(${index})">&#128465;</span>
+                    `;
+                    summaryContent.appendChild(summaryItem);
+                }
+            });
+            document.getElementById('total-price').innerHTML = `Total: RM ${total.toFixed(2)}`;
+            if (!summaryContent.innerHTML) {
+                summaryContent.innerHTML = 'No books selected.';
+            }
+        }
+
+        function showSection() {
+            const selectedType = document.getElementById('book-type').value;
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+            if (selectedType) {
+                document.getElementById(selectedType).style.display = 'block';
+            }
+        }
+
+        function removeSelection(index) {
+            const bookItems = document.querySelectorAll('.book-item');
+            const item = bookItems[index];
+            const checkbox = item.querySelector('.book-checkbox');
+            const quantityInput = item.querySelector('.book-quantity');
+            checkbox.checked = false;
+            quantityInput.value = 1;
+            quantityInput.disabled = true;
+            updateTotal();
+        }
+    </script>
+</head>
+
+<body>
+<div class="form-container">
+    <h1>Order Form</h1>
+    <form action="checkoutform.html" method="POST">
+        <label for="book-type">Type Book:</label>
+        <select id="book-type" onchange="showSection()">
+            <option value="">-- Type Book --</option>
+            <option value="Novel">Novel</option>
+            <option value="islamic">Islamic</option>
+            <option value="Academic">Academic</option>
+            <option value="Fiction">Fiction</option>
+        </select>
+        
+        <div id="Novel" class="section">
+            <h2>Novel</h2>
+
+            <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="34.00" onclick="updateTotal()"> 
+                    BAYANG SOFEA - RM 34.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+
+            <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="34.00" onclick="updateTotal()"> 
+                    KING HAIDAR - RM 34.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+
+            <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="27.00" onclick="updateTotal()"> 
+                    DR. ALPHA MALE - RM 27.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+
+
+            <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="34.00" onclick="updateTotal()"> 
+                    KITA CUMA KAWAN, KAN? - RM34.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+
+             <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="28.00" onclick="updateTotal()"> 
+                   YES, CAPTAIN ZUL AARYAN - RM28.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+
+          <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="24.65" onclick="updateTotal()"> 
+                   DIA  HERO SEMPURNA - RM 24.65
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+            <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="32.00" onclick="updateTotal()"> 
+                    THE KAYANGAN HAZEL - RM 32.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+           <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="29.00" onclick="updateTotal()"> 
+                    HAZRAEL - RM 29.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+           <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="25.50" onclick="updateTotal()"> 
+                   SEE YOU IN A BIT - RM 25.50
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+
+           <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="28.00" onclick="updateTotal()"> 
+                    PRINCE ON WHITE HORSE - RM 28.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+        </div>
+
+
+
+        <div id="islamic" class="section">
+            <h2>Islamic</h2>
+
+            <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="12.00" onclick="updateTotal()"> 
+                    DOSA-DOSA BESAR - RM 12.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+           <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="19.00" onclick="updateTotal()"> 
+                    40 HADIS AKHLAK MULIA - RM 19.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+       
+           <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="15.00" onclick="updateTotal()"> 
+                    PELITA PENUNTUT - RM 15.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+           <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="20.00" onclick="updateTotal()"> 
+                    PANDUAN PARA IMAM - RM 20.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+           <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="38.00" onclick="updateTotal()"> 
+                    MATLA' AL-BADRAIN - RM 32.30
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+       
+          <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="20.00" onclick="updateTotal()"> 
+                    HIDAYAH AL-SALIKIN - RM 20.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+
+           <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="20.00" onclick="updateTotal()"> 
+                    NASHAIHUL 'IBAD - RM 20.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+           <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="10.00" onclick="updateTotal()"> 
+                    ISRA' & MI'RAJ- RM 10.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+            <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="10.00" onclick="updateTotal()"> 
+                    APA ERTINYA SAYA MENGANUT ISLAM- RM 8.50
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+            <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="40.00" onclick="updateTotal()"> 
+                    TAFSIR AL-'USYR AL-AKHIR- RM 40.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+        </div>
+
+
+
+        <div id="Academic" class="section">
+            <h2>Academic</h2>
+
+            <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="18.95" onclick="updateTotal()"> 
+                   REVISI CEPAT BAHASA MELAYU T1, 2 & 3 - RM18.95
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+          <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="17.80" onclick="updateTotal()"> 
+                  REVISI CEPAT ENGLISH T1, 2 & 3 - RM17.80
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+           <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="22.90" onclick="updateTotal()"> 
+                  REVISI CEPAT SEJARAH T1, 2 & 3 - RM22.90
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+            <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="25.90" onclick="updateTotal()"> 
+                   REVISI CEPAT MATEMATIK T1, 2 & 3 - RM25.90
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+             <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="21.53" onclick="updateTotal()"> 
+                   REVISI CEPAT GEOGRAFI T1, 2 & 3 - RM21.53
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+              <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="25.90" onclick="updateTotal()"> 
+                  REVISI PANTAS BAHASA MELAYU T4 & 5 - RM25.90
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+          <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="25.40" onclick="updateTotal()"> 
+                  REVISI PANTAS ENGLISH T4 & 5 - RM25.40
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+          <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="27.46" onclick="updateTotal()"> 
+                  REVISI PANTAS SEJARAH T4 & 5 - RM27.46
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+
+
+          <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="35.90" onclick="updateTotal()"> 
+                   REVISI PANTAS MATEMATIK T4 & 5 - RM35.90
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+
+           <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="35.90" onclick="updateTotal()"> 
+                   REVISI PANTAS SAINS T4 & 5 - RM35.90
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+        </div>
+
+
+        <div id="Fiction" class="section">
+            <h2>Fiction</h2>
+            <div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="25.50" onclick="updateTotal()"> 
+                    EMPAYAR - RM 25.50
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+<div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="28.00" onclick="updateTotal()"> 
+                   EMPAYAR 2 - RM 28.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+
+<div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="28.00" onclick="updateTotal()"> 
+                   EMPAYAR 3 - RM 28.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+
+<div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="50.00" onclick="updateTotal()"> 
+                    NIRNAMA 2- RM 50.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+
+<div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="42.50" onclick="updateTotal()"> 
+                   NIRNAMA 1 - RM 42.50
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+
+
+<div class="book-item">
+                <label>
+                    <input type="checkbox" class="book-checkbox" data-price="25.00" onclick="updateTotal()"> 
+                    SEMUSIM DI BARZAKH - RM 25.00
+                </label>
+                <input type="number" class="book-quantity" min="1" value="1" onchange="updateTotal()" disabled>
+            </div>
+        </div>
+
+
+        <h2>Order Summary</h2>
+        <div id="summary">No books selected.</div>
+        <p id="total-price">Total: RM 0.00</p>
+        <button type="submit">Checkout</button>
+    </form>
+
+    <script>
+        document.querySelectorAll('.book-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const quantityInput = this.parentNode.nextElementSibling;
+                quantityInput.disabled = !this.checked;
+                updateTotal();
+            });
+        });
+    </script>
+    
+     </div>
+
+</body>
+</html>

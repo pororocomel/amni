@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Fiction Books Layout</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  * {box-sizing: border-box;}
+  body {font-family: Verdana, sans-serif; margin: 0; background-color: #fff8f0;}
+  .slideshow-container {
+    max-width: 80%;
+    position: relative;
+    margin: 20px auto;
+    background-color: #ede0d4;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  .mySlides {
+    display: none;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mySlides img {
+    max-width: 400px;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  .mySlides .content {
+    text-align: left;
+    max-width: 600px;
+  }
+  .mySlides .content h3 {
+    margin: 10px;
+    font-size: 24px;
+    color: #333;
+  }
+  .mySlides .content p {
+    margin: 20px;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  
+  .dot-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #950952;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  .active {
+    background-color: #fff8f0;
+  }
+</style>
+</head>
+<body>
+
+<h1 style="text-align: center;">Fiction Books</h1>
+<p style="text-align: center;">Fiction books that inspire, thrill, and captivate — start reading now!</p>
+<div class="slideshow-container">
+
+
+  <div class="mySlides">
+    <img src="images/book.jpg" alt="Book 1">
+    <div class="content">
+      <h2>EMPAYAR</h2>
+      <p style="font-size:20px">"Empayar Hikayat Tanpa Nama oleh Teme Abdullah: Mengisahkan tentang perjuangan, persahabatan, dan keimanan. 🌟
+Sebuah cerita epik yang menyentuh jiwa pembaca.</p>
+  </div>
+</div>
+
+  <div class="mySlides">
+        <img src="images/book.jpg" alt="Book 1">
+    <div class="content">
+      <h2>NIRNAMA</h2>
+      <p style="font-size:20px">Seorang pendekar tanpa nama telah menjadi buah mulut ramai. Sikapnya yang ringan tulang membantu masyarakat di serata Tanah Semenanjung, dan berani menentang kezaliman orang-orang Jagat suci, membuatkan dirinya menjadi bualan rakyat.Tiada siapa tahu akan namanya. Lantas orang ramai mula menggelarnya Nirnama - Tanpa Nama</p>
+    </div>
+  </div>
+
+ <div class="mySlides">
+    <img src="images/bsbook4.jpg" alt="Book 4">
+    <div class="content">
+      <h2>SEMUSIM DI BARZAKH</h2>
+      <p style="font-size:20px">Tiada siapa yang pernah menjengah ke Alam Barzakh, melainkan mereka yang telah pergi tidak akan kembali. Keadaannya yang sebenar hanya disampaikan melalui apa yang diceritakan oleh Rasulullah SAW, jadi apakah benar Novel ini ingin menyingkap sesuatu yang mustahil?</p>
+    </div>
+  </div>
+  
+ 
+
+</div>
+
+<div class="dot-container">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  const slides = document.getElementsByClassName("mySlides");
+  const dots = document.getElementsByClassName("dot");
+  
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  
+  slides[slideIndex-1].style.display = "flex";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 3000); // Change slide every 2 seconds
+}
+</script>
+<br>
+<br>
+<br>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff8f0;
+  }
+  
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 90%;
+    margin: 20px auto;
+ }
+  .book-card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 900px;
+  }
+
+  .book-card img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+
+  .book-content {
+    flex: 1;
+  }
+
+  .book-content h3 {
+    color: black;
+    font-size: 25px;
+    margin: 0 0 10px;
+  }
+
+  .book-content p {
+    font-size: 16px;
+    color: #555;
+    margin: 0 0 15px;
+  }
+  
+  .star-rating {
+    margin: 10px 0;
+  }
+
+  .fa-star {
+    font-size: 18px;
+    margin-right: 5px;
+  }
+
+  .checked {
+    color: orange;
+  }
+
+  .btn-container {
+    margin-top: 15px;
+  }
+
+  .btn {
+    border: 2px solid blue;
+    background-color: white;
+    color: blue;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+  }
+
+  .btn:hover {
+    background: blue;
+    color: white;
+  }
+
+  .price-btn {
+    border-color: #f44336;
+    color: red;
+    margin-left: 10px;
+  }
+
+  .price-btn:hover {
+    background: #f44336;
+    color: white;
+  }
+</style>
+</head>
+<body>
+
+
+
+<div class="book-grid">
+  <div class="book-card">
+    <img src="images/book1.jpg" alt="EMPAYAR1">
+    <div class="book-content">
+      <h3>EMPAYAR</h3>
+      <p>Ilmu agama ini umpama senjata yang boleh dimiliki sesiapa....</p>
+      <div class="star-rating">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+      </div>
+      <div class="btn-container">
+        <a href="descbook1new.html" class="btn">Read More</a>
+        <button class="btn price-btn">RM 25.00</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="book-card">
+    <img src="images/bsbook2.jpg" alt="EMPAYAR2">
+    <div class="book-content">
+      <h3>EMPAYAR 2</h3>
+      <p>Ribuan tahun selepas peperangan yang memusnahkan hampir keseluruhan dunia....</p>
+      <div class="star-rating">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+      </div>
+      <div class="btn-container">
+        <a href="descbook2new.html" class="btn">Read More</a>
+        <button class="btn price-btn">RM 26.00</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="book-card">
+    <img src="images/book3.jpg" alt="EMPAYAR 3">
+    <div class="book-content">
+      <h3>EMPAYAR 3</h3>
+      <p>Saka raja yang diwarisi telah memberi kesaktian luar biasa kepada Sang Putera...</p>
+      <div class="star-rating">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+      </div>
+      <div class="btn-container">
+        <a href="descbook3new.html" class="btn">Read More</a>
+        <button class="btn price-btn">RM 26.00</button>
+      </div>
+    </div>
+  </div>
+  <div class="book-card">
+    <img src="images/bsbook4.jpg" alt="NIRNAMA">
+    <div class="book-content">
+      <h3>NIRNAMA</h3>
+      <p>BSeorang pendekar tanpa nama telah menjadi buah mulut ramai..</p>
+      <div class="star-rating">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+      </div>
+      <div class="btn-container">
+        <a href="descbook4new.html" class="btn">Read More</a>
+        <button class="btn price-btn">RM 50.00</button>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="book-card">
+  <img src="images/book5.jpg" alt="NIRNAMA 2">
+  <div class="book-content">
+    <h3>NIRNAMA 2</h3>
+    <p>s0 tahun telah berlalu semenjak Jagat Suci dan Raja Bersiong ditumbangkan. Insan yang digelar sebagai Nirnama telah lama tidak menggunakan gelaran tersebut ..</p>
+    <div class="star-rating">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+    </div>
+    <div class="btn-container">
+      <a href="descbook5new.html" class="btn">Read More</a>
+      <button class="btn price-btn">RM 51.00</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="book-card">
+  <img src="images/book6.jpg" alt="SEMUSIM DI BARZAKH">
+  <div class="book-content">
+    <h3>SEMUSIM DI BARZAKH</h3>
+    <p>  Keadaannya yang sebenar hanya disampaikan melalui apa yang diceritakan oleh Rasulullah SAW, jadi apakah benar Novel ini ingin menyingkap sesuatu yang mustahil?....</p>
+    <div class="star-rating">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+    </div>
+    <div class="btn-container">
+      <a href="descbook6new.html" class="btn">Read More</a>
+      <button class="btn price-btn">RM 20.00</button>
+    </div>
+  </div>
+</div>
+
+<div class="book-card">
+  <img src="images/bsbook7.jpg" alt="NASHAIHUL 'IBAD">
+  <div class="book-content">
+    <h3>NASHAIHUL 'IBAD</h3>
+    <p>Sebuah kitab Tasawuf peninggalan tokoh ilmuwan Islam yang terkenal iaitu Abu Abd al-Muti’ Muhammad ibn Umar al-Tanara al-Jawi al-Bantani.Kitab ini sarat dengan pelbagai bentuk peringatan, seruan serta nasihat-nasihat bagi mempersiapkan diri menghadapi hari akhirat kelak....</p>
+    <div class="star-rating">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+    </div>
+    <div class="btn-container">
+      <a href="descbook7new.html" class="btn">Read More</a>
+      <button class="btn price-btn">RM 20.00</button>
+    </div>
+  </div>
+</div>
+
+<div class="book-card">
+  <img src="images/book8.jpg" alt="ISRAJ' & MI'RAJ">
+  <div class="book-content">
+    <h3>ISRA' & MI'RAJ</h3>
+    <p>Buku ini ditulis khusus untuk memberikan panduan kepada para penuntut ilmu...</p>
+    <div class="star-rating">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+    </div>
+    <div class="btn-container">
+      <a href="descbook8new.html" class="btn">Read More</a>
+      <button class="btn price-btn">RM 10.00</button>
+    </div>
+  </div>
+</div>
+  <div class="book-card">
+  <img src="images/book9.jpg" alt="APA ERTINYA SAYA MENGANUT ISLAM">
+  <div class="book-content">
+    <h3>APA ERTINYA SAYA MENGANUT ISLAM</h3>
+    <p>Membahas sifat-sifat yang wajib ada pada setiap orang muslim supaya dengan sifat-sifat tersebut ia benar-benar menjadi seorang muslim...</p>
+    <div class="star-rating">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star "></span>
+      <span class="fa fa-star "></span>
+    </div>
+    <div class="btn-container">
+      <a href="descbook9new.html" class="btn">Read More</a>
+      <button class="btn price-btn">RM 15.00</button>
+    </div>
+  </div>
+</div>
+
+<div class="book-card">
+  <img src="images/bsbook10.jpg" alt="TAFSIR AL-'USYR AL-AKHIR">
+  <div class="book-content">
+    <h3>TAFSIR AL-'USYR AL-AKHIR</h3>
+    <p>afsir Al-Usyr Al-Akhir Dari Al Qur'an Al Karim juz (28, 29, 30): Disertai Hukum-hukum Penting Bagi Seorang Muslim...</p>
+    <div class="star-rating">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+    </div>
+    <div class="btn-container">
+      <a href="descbook10new.html" class="btn">Read More</a>
+      <button class="btn price-btn">RM 40.00</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+  

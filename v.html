@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/v.css">
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+<div class="container">
+    <div class="flip-box vision">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+          <div class="small-text">Our</div>
+          <h2>Vision</h2>
+        </div>
+        <div class="flip-box-back">
+          <p><h2>To become the go-to hub for book lovers, students, and creators, fostering a community that values knowledge, creativity, and affordable access to resources.</h2></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-box mission">
+          <div class="flip-box-inner">
+        <div class="flip-box-front">
+          <div class="small-text">Our</div>
+          <h2>Mission</h2>
+        </div>
+        <div class="flip-box-back">
+          <p><h2>To provide a diverse range of books, quality stationery, and creative tools at unbeatable prices, making education, creativity, and entertainment accessible to everyone.</h2></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-box values">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+          <div class="small-text">Our</div>
+          <h2>Values</h2>
+        </div>
+        <div class="flip-box-back">
+          <ul>
+            <b><h2><li>Community</li>
+            <li>Accessibility</li>
+            <li>Transparency</li>
+            <li>Sustainability</li>
+            <li>Passion for Knowledge</li>
+            <li>Customer-Centric Approach</li></h2></b>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
+
+<footer>
+      <center><p>Copyright © 2025 BOOKSCAPE SDN BHD. All Rights Reserved | BOOKSCAPEOnline.com.</p></center>
+</footer>
+<script>
+  async function loadHeader() {
+      const headerPlaceholder = document.getElementById('header-placeholder');
+      const response = await fetch('partials/bheader.html');
+      if (response.ok) {
+          headerPlaceholder.innerHTML = await response.text();
+      } else {
+          console.error('Failed to load header');
+      }
+  }
+  loadHeader();
+</script>
+</body>
+</html>
+
+

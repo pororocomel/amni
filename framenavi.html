@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frame with Navbar</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        frameset {
+            border: none; /* Tiada garis antara frame */
+        }
+    </style>
+</head>
+<frameset rows="10%, 90%" frameborder="0" border="0" framespacing="0">
+    <!-- Frame untuk navbar -->
+    <frame src="navigation.html" name="top" scrolling="no" noresize>
+    <!-- Frame untuk kandungan -->
+    <frame src="framebawah.html" name="bottom" noresize>
+</frameset>
+</html>

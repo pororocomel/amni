@@ -1,0 +1,323 @@
+body {
+    background-image: url('../book9.html');
+   background-repeat: no-repeat;
+   background-attachment: fixed;  
+   background-size: cover;
+   font-size: 16px;
+ }
+ body {
+    font-family: Arial, sans-serif;
+    background-image: url('../images/bc.jpg');
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Main container holding both elements */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px;
+    flex-wrap: wrap; /* To allow responsiveness */
+  }
+
+  /* The device with borders (tablet) */
+  .tablet {
+    position: relative;
+    width: 400px; /* Adjusted width */
+    height: 500px; /* Adjusted height */
+    margin: 10px;
+    border: 16px black solid;
+    border-top-width: 60px;
+    border-bottom-width: 60px;
+    border-radius: 30px;
+  }
+
+  /* The horizontal line on the top of the device */
+  .tablet:before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 5px;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #333;
+    border-radius: 10px;
+  }
+
+  /* The circle on the bottom of the device */
+  .tablet:after {
+    content: '';
+    display: block;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    left: 50%;
+    bottom: -65px;
+    transform: translate(-50%, -50%);
+    background: #333;
+    border-radius: 50%;
+  }
+
+  /* The screen (or content) of the device */
+  .tablet .content {
+    width: 100%;
+    height: 100%;
+    background: white;
+    margin: -1px;
+    overflow: hidden; /* Hide overflow */
+    position: relative;
+  }
+
+  /* Chat container that moves vertically */
+  .chat-wrapper {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    animation: scrollChat 20s linear infinite;
+  }
+
+  .chat-message {
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 10px 0;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .chat-message span {
+    font-weight: bold;
+  }
+
+  /* Animation to scroll chat from top to bottom */
+  @keyframes scrollChat {
+    0% {
+      top: 100%;
+    }
+    100% {
+      top: -100%;
+    }
+  }
+
+  /* Feedback form styles */
+  .feedback-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 700px;
+    max-width: 500%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .feedback-form h2 {
+    color: black;
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  label {
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  input[type="text"], input[type="email"], textarea, input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    font-size: 14px;
+  }
+
+  textarea {
+    resize: vertical;
+    height: 100px;
+  }
+
+  .rating {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .rating i {
+    font-size: 30px;
+    color: orange;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .rating i:hover,
+  .rating i.active {
+    color: #ffde59;
+  }
+
+  .submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    background-color: #45a049;
+  }
+
+  .feedback-message {
+    font-size: 18px;
+    margin-top: 20px;
+    display: none;
+  }
+
+  .feedback-message.success {
+    color: green;
+  }
+
+  .feedback-message.error {
+    color: red;
+  }
+
+  .image-preview {
+    margin-top: 10px;
+    display: none;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8px;
+    border: 3px solid #ccc;
+  }
+
+  /* Responsive layout adjustments */
+  @media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Stack the items vertically on small screens */
+      padding: 20px;
+    }
+
+    .tablet {
+      margin: 20px 0;
+      width: 80%;
+      height: 400px;
+    }
+
+    .feedback-form {
+      width: 100%;
+    }
+  }
+  body {
+    background-image: url('../images/bc.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+    position: sticky; /* Navbar sticks at the top when scrolling */
+    top: 0;
+    z-index: 1000; /* Keeps navbar above all other elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #950952; /* Background color matching the image */
+    padding: 10px 40px; /* Internal spacing */
+    color: white;
+    width: 100%; /* Full width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo h1 {
+    font-size: 24px;
+    color: white;
+    margin: 0; /* Removes extra margin */
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    position: relative; /* Parent for dropdowns */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px; /* Padding for clickable area */
+    border-radius: 5px; /* Rounded hover effect */
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: orange;
+}
+
+/* Dropdown Styling */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    color: black;
+    min-width: 150px;
+    z-index: 999; /* Above all other elements */
+    display: none; /* Hidden by default */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown a:hover {
+    background-color: #f4f4f4;
+}
+
+nav ul li:hover .dropdown {
+    display: block; /* Dropdown appears on hover */
+}
+
+/* Footer Styling */
+footer {
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 3px solid #950952;
+    background-color: white;
+    position: relative;
+    margin-top: 30px;
+}

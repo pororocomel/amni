@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        h1 {
+            color: #007BFF;
+        }
+        .results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <p class="results"></p>
+    
+    <script>
+        // Ambil parameter pencarian dari URL
+        const params = new URLSearchParams(window.location.search);
+        const query = params.get('q');
+
+        // Tampilkan hasil pencarian
+        const resultsDiv = document.querySelector('.results');
+        if (query) {
+            resultsDiv.innerHTML = `<h2>You searched for: "<strong>${query}</strong>"</h2>
+                                    <p>We found some books related to your search. Explore below:</p>`;
+        } else {
+            resultsDiv.innerHTML = '<h2>No search query provided!</h2>';
+        }
+    </script>
+</body>
+</html>

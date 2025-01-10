@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Feedback and Tablet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/review.css">
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+
+  <div class="container">
+    <!-- Tablet Device -->
+    <div class="tablet">
+      <div class="content">
+        <div class="chat-wrapper">
+          <!-- Chat messages -->
+          <div class="chat-message">
+            <span> Nadia: </span>"I absolutely loved the book I bought from Online Bookscape! The delivery was quick, and the quality was outstanding."
+          </div>
+
+          <div class="chat-message">
+            <span>Maisara: </span> "Such a great collection of books! I’ll definitely be buying more from this website. Highly satisfied!"</div>
+
+          <div class="chat-message">
+            <span>Catrina: </span> "Such a great collection of books! I’ll definitely be buying more from this website. Highly satisfied!."
+          </div>
+
+          <div class="chat-message">
+            <span> Mario: </span> "Easy navigation, quick checkout, and my book arrived in perfect condition. Thank you, Online Bookscape!."
+          </div>
+
+          <div class="chat-message"> 
+            <span> Qistina: </span> "I’m so glad I found Online Bookscape. Great customer support and even better books!."
+          </div>
+
+          <div class="chat-message">
+            <span>Noah: </span> "I found my favorite author’s latest book here at a great price! Definitely coming back for more." 
+          </div>
+
+          <!-- More chat messages can be added here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Customer Feedback Form -->
+    <div class="feedback-form">
+      <h2><marquee>Customer Feedback</marquee></h2>
+      <form id="feedbackForm" enctype="multipart/form-data">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="rating">Rating (1-5):</label>
+        <div class="rating" id="rating">
+          <i class="fas fa-star" data-value="1"></i>
+          <i class="fas fa-star" data-value="2"></i>
+          <i class="fas fa-star" data-value="3"></i>
+          <i class="fas fa-star" data-value="4"></i>
+          <i class="fas fa-star" data-value="5"></i>
+        </div>
+
+        <label for="comments">Comments:</label>
+        <textarea id="comments" name="comments" placeholder="Enter your feedback" required></textarea>
+
+        <label for="imageUpload">Upload an Image (optional):</label>
+        <input type="file" id="imageUpload" name="image" accept="image/*">
+
+        <img id="imagePreview" class="image-preview" src="#" alt="Image Preview">
+
+        <button type="submit" class="submit-btn">Submit Feedback</button>
+      </form>
+
+      <div class="feedback-message" id="feedbackMessage"></div>
+    </div>
+  </div>
+<footer>
+  <center><p>Copyright  ©  2025 BOOKSCAPE SDN BHD. All Rights Reserved | BOOKSCAPEOnline.com.</p></center>
+ </footer>
+ 
+ <script>
+  // Rating stars functionality
+  const stars = document.querySelectorAll('.rating i');
+  let selectedRating = 0;
+
+  stars.forEach(star => {
+    star.addEventListener('click', () => {
+      selectedRating = star.getAttribute('data-value');
+      stars.forEach(star => star.classList.remove('active'));
+      for (let i = 0; i < selectedRating; i++) {
+        stars[i].classList.add('active');
+      }
+    });
+  });
+
+  // Image preview functionality
+  const imageUpload = document.getElementById('imageUpload');
+  const imagePreview = document.getElementById('imagePreview');
+
+  imageUpload.addEventListener('change', () => {
+    const file = imageUpload.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        imagePreview.src = event.target.result;
+        imagePreview.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    } else {
+      imagePreview.style.display = 'none';
+    }
+  });
+
+  // Feedback form submission
+  const form = document.getElementById('feedbackForm');
+  const feedbackMessage = document.getElementById('feedbackMessage');
+  const chatWrapper = document.querySelector('.chat-wrapper');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const comments = document.getElementById('comments').value;
+
+    if (name && email && comments && selectedRating) {
+      // Create a new chat message element
+      const newChatMessage = document.createElement('div');
+      newChatMessage.classList.add('chat-message');
+      newChatMessage.innerHTML = `<span>${name}: </span>"${comments}"`;
+
+      // Add it to the chat wrapper
+      chatWrapper.appendChild(newChatMessage);
+
+      // Display a success message to the user
+      feedbackMessage.textContent = 'Thank you for your feedback!';
+      feedbackMessage.classList.remove('error');
+      feedbackMessage.classList.add('success');
+    } else {
+      feedbackMessage.textContent = 'Please fill out all fields and select a rating.';
+      feedbackMessage.classList.remove('success');
+      feedbackMessage.classList.add('error');
+    }
+
+    // Show the feedback message and reset form
+    feedbackMessage.style.display = 'block';
+    form.reset();
+    stars.forEach(star => star.classList.remove('active'));
+    imagePreview.style.display = 'none';
+
+    // Ensure the chat scrolls down automatically to show the latest message
+    chatWrapper.scrollTop = chatWrapper.scrollHeight;
+  });
+</script>
+ <script>
+  async function loadHeader() {
+      const headerPlaceholder = document.getElementById('header-placeholder');
+      const response = await fetch('partials/bheader.html');
+      if (response.ok) {
+          headerPlaceholder.innerHTML = await response.text();
+      } else {
+          console.error('Failed to load header');
+      }
+  }
+  loadHeader();
+</script>
+</body>
+</html>

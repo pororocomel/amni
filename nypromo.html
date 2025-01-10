@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo New Year 2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            margin: 20px 0;
+            color: #d9534f;
+            font-size: 2rem;
+            text-align: center;
+        }
+        .slideshow-container {
+            width: 80%;
+            position: relative;
+            overflow: hidden;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: calc(100% / 3);
+            box-sizing: border-box;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .slide:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .slide img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        .slide h3 {
+            margin: 15px 0 5px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+        .slide p {
+            color: #555;
+            margin: 5px 0;
+        }
+        .price {
+            font-size: 1rem;
+            color: #555;
+        }
+        .price .original {
+            text-decoration: line-through;
+            color: #999;
+        }
+        .price .discount {
+            font-weight: bold;
+            color: #d9534f;
+        }
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .navigation button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .navigation button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <h1>Promo New Year 2025 - 15% OFF!</h1>
+    <div class="slideshow-container">
+        <div class="slides">
+            <div class="slide">
+                <img src="images/book1.jpg" alt="Book 1">
+                <h3>Book 1</h3>
+                <p class="price">
+                    <span class="original">RM51.00</span> 
+                    <span class="discount">RM43.35</span>
+                </p>
+            </div>
+            <div class="slide">
+                <img src="images/book2.jpg" alt="Book 2">
+                <h3>Book 2</h3>
+                <p class="price">
+                    <span class="original">RM45.00</span> 
+                    <span class="discount">RM38.25</span>
+                </p>
+            </div>
+            <div class="slide">
+                <img src="images/book3.jpg" alt="Book 3">
+                <h3>Book 3</h3>
+                <p class="price">
+                    <span class="original">RM32.00</span> 
+                    <span class="discount">RM27.20</span>
+                </p>
+            </div>
+            <div class="slide">
+                <img src="images/book4.jpg" alt="Book 4">
+                <h3>Book 4</h3>
+                <p class="price">
+                    <span class="original">RM60.00</span> 
+                    <span class="discount">RM51.00</span>
+                </p>
+            </div>
+            <div class="slide">
+                <img src="images/book5.jpg" alt="Book 5">
+                <h3>Book 5</h3>
+                <p class="price">
+                    <span class="original">RM40.00</span> 
+                    <span class="discount">RM34.00</span>
+                </p>
+            </div>
+            <div class="slide">
+                <img src="images/book6.jpg" alt="Book 6">
+                <h3>Book 6</h3>
+                <p class="price">
+                    <span class="original">RM55.00</span> 
+                    <span class="discount">RM46.75</span>
+                </p>
+            </div>
+            <div class="slide">
+                <img src="images/book7.jpg" alt="Book 7">
+                <h3>Book 7</h3>
+                <p class="price">
+                    <span class="original">RM36.00</span> 
+                    <span class="discount">RM30.60</span>
+                </p>
+            </div>
+            <div class="slide">
+                <img src="images/book8.jpg" alt="Book 8">
+                <h3>Book 8</h3>
+                <p class="price">
+                    <span class="original">RM48.00</span> 
+                    <span class="discount">RM40.80</span>
+                </p>
+            </div>
+        </div>
+        <div class="navigation">
+            <button id="prev">Prev</button>
+            <button id="next">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelector('.slides');
+        const slideWidth = slides.querySelector('.slide').clientWidth;
+        const totalSlides = slides.children.length;
+        const slidesPerView = 3;
+        let currentIndex = 0;
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex <= 0) ? totalSlides - slidesPerView : currentIndex - 1;
+            slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex >= totalSlides - slidesPerView) ? 0 : currentIndex + 1;
+            slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        });
+    </script>
+</body>
+</html>

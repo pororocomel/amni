@@ -1,0 +1,270 @@
+body {
+    background-image: url('../images/latar.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+    font-size: 16px;
+}
+
+  * {box-sizing: border-box;}
+
+    body {
+        font-family: Verdana, sans-serif; margin: 0;
+        background-image: url('../images/bc.jpg');
+    }
+
+  .slideshow-container {
+    max-width: 80%;
+    position: relative;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  .mySlides {
+    display: none;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mySlides img {
+    max-width: 200px;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  .mySlides .content {
+    text-align: left;
+    max-width: 600px;
+  }
+  .mySlides .content h3 {
+    margin: 10px;
+    font-size: 24px;
+    color: #333;
+  }
+  .mySlides .content p {
+    margin: 20px;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  
+  .dot-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  .active {
+    background-color: #717171;
+  }
+
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+  }
+
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 90%;
+    margin: 20px auto;
+ }
+
+  .book-card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 900px;
+  }
+
+  .book-card img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+
+  .book-content {
+    flex: 1;
+  }
+
+  .book-content h3 {
+    color: black;
+    font-size: 25px;
+    margin: 0 0 10px;
+  }
+
+  .book-content p {
+    font-size: 16px;
+    color: #555;
+    margin: 0 0 15px;
+  }
+  
+  .star-rating {
+    margin: 10px 0;
+  }
+
+  .fa-star {
+    font-size: 18px;
+    margin-right: 5px;
+  }
+
+  .checked {
+    color: orange;
+  }
+
+.price {
+    font-size: 10rem;
+    color: #555;
+ }
+   .price .original {
+     text-decoration: line-through;
+     color: #999;
+ }
+   .price .discount {
+     font-weight: bold;
+    color: #d9534f;
+}
+
+ .btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+  .btn {
+    border: 2px solid blue;
+    background-color: white;
+    color: blue;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+  }
+
+  .btn:hover {
+    background: blue;
+    color: white;
+  }
+
+  .buynow-btn {
+  border-color: #04AA6D;
+  color: green;
+ 
+}
+
+.buynow-btn:hover {
+  background-color: #04AA6D;
+  color: white;
+}
+
+footer {
+    color: black;
+    text-align: center;
+    padding: 10px 0;  
+    border-top: 3px solid #950952;  
+    width: 200%;  
+    background-color: white; 
+    position: relative;  
+    margin-top: 30px;  
+}
+
+.dot.active {
+    background-color: purple; /* Or any desired color */
+}
+
+.navbar {
+  position: sticky; /* Ensures the navbar stays sticky */
+  top: 0; /* Sticks it to the top of the viewport */
+  z-index: 1000; /* Keeps it above other elements */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #950952; /* Background color */
+  padding: 10px 40px; /* Internal spacing */
+  color: white;
+  width: 100%; /* Full width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+}       
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo h1 {
+  font-size: 24px;
+  color: white;
+}           
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative; /* Menentukan parent dropdown */
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: orange;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  color: black;
+  min-width: 150px;
+  z-index: 999; /* Agar berada di atas elemen lain */
+  display: none; /* Disembunyikan secara default */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.dropdown a:hover {
+  background-color: #f4f4f4;
+}
+
+nav ul li:hover .dropdown {
+  display: block;
+}

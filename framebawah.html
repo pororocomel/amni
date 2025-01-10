@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iframe with Dropdown</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style for iframe layout */
+        .top-frame {
+            position: relative;
+            height: 10%; /* Adjust height for navbar */
+            width: 100%;
+            border: none; /* Remove iframe border */
+            overflow: visible; /* Ensure dropdown is not clipped */
+            z-index: 1000;
+        }
+
+        .bottom-frame {
+            position: relative;
+            height: 90%;
+            width: 100%;
+            border: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Iframe for Navbar -->
+    <iframe class="top-frame" src="navbar.html" scrolling="no"></iframe>
+
+    <!-- Iframe for Content -->
+    <iframe class="bottom-frame" src="content.html"></iframe>
+</body>
+</html>
